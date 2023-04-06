@@ -38,6 +38,7 @@ class DeepSort(object):
         embedder="mobilenet",
         half=True,
         bgr=True,
+        device=None,
         embedder_gpu=True,
         embedder_model_name=None,
         embedder_wts=None,
@@ -109,6 +110,7 @@ class DeepSort(object):
                     half=half,
                     max_batch_size=16,
                     bgr=bgr,
+                    device=device,
                     gpu=embedder_gpu,
                     model_wts_path=embedder_wts,
                 )

@@ -42,7 +42,7 @@ class MobileNetv2_Embedder(object):
     """
 
     def __init__(
-        self, model_wts_path=None, half=True, max_batch_size=16, bgr=True, gpu=True
+        self, model_wts_path=None, half=True, max_batch_size=16, bgr=True, gpu=True, device=None
     ):
         if model_wts_path is None:
             model_wts_path = MOBILENETV2_BOTTLENECK_WTS
@@ -52,9 +52,11 @@ class MobileNetv2_Embedder(object):
         self.model = MobileNetV2_bottle(input_size=INPUT_WIDTH, width_mult=1.0)
         self.model.load_state_dict(torch.load(model_wts_path))
 
+        self.device = device
+
         self.gpu = gpu and torch.cuda.is_available()
         if self.gpu:
-            self.model.cuda()  # loads model to gpu
+            self.model.cuda(self.device)  # loads model to gpu
             self.half = half
             if self.half:
                 self.model.half()
@@ -129,7 +131,7 @@ class MobileNetv2_Embedder(object):
         for this_batch in batch(preproc_imgs, bs=self.max_batch_size):
             this_batch = torch.cat(this_batch, dim=0)
             if self.gpu:
-                this_batch = this_batch.cuda()
+                this_batch = this_batch.cuda(self.device)
                 if self.half:
                     this_batch = this_batch.half()
             output = self.model.forward(this_batch)
