@@ -4,14 +4,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="deep-sort-realtime",
+    name="tactus_deep-sort-realtime",
     version="1.3.2",
     author="levan92",
     author_email="lingevan0208@gmail.com",
-    description="A more realtime adaptation of Deep SORT",
+    description="Deep SORT with device selector",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/levan92/deep_sort_realtime",
+    url="https://github.com/Cranfield-GDP3/deep_sort_realtime",
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

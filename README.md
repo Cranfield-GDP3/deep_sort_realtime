@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A more realtime adaptation of Deep SORT.
+A more realtime adaptation of Deep SORT. This fork allows the selection of the cuda device.
 
 Adapted from the [official repo of *Simple Online and Realtime Tracking with a Deep Association Metric* (Deep SORT)](https://github.com/nwojke/deep_sort)
 
