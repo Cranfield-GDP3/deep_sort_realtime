@@ -30,6 +30,7 @@ Main dependencies are:
 - or, clone this repo & install deep-sort-realtime as a python package using `pip` or as an editable package if you like (`-e` flag)
 
 ```bash
+git clone https://github.com/Cranfield-GDP3/deep_sort_realtime.git
 cd deep_sort_realtime && pip3 install .
 ```
 
